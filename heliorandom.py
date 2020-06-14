@@ -1,4 +1,4 @@
-# Author: Juan Jimenez, flybd5@gmail.com
+# Author: Juan Jiménez, flybd5@gmail.com
 # Copyright 2020 by Juan Jiménez
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -16,9 +16,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-# Sample Python code to illustrate seeding Python's random number generator
+# Sample Python 3 code to illustrate seeding Python's random number generator
 # with the datasum of the latest image of the sun from one of sources 8-17 on the
 # Helioviewer API (SDO AIA instrument sources).
+# Note that this program will not run under Python 2.x
 
 import requests, json, random
 import xml.etree.ElementTree as ET
