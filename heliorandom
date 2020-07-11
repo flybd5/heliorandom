@@ -36,7 +36,10 @@ print("Using source: "+str(theSource))
 dtnow = datetime.utcnow()
 datetimestring = dtnow.strftime("%Y-%m-%dT%H:%M:%SZ")
 # create HTTP response object url to the Helioviewer API to get latest image
-resp = requests.get('https://api.helioviewer.org/v2/getClosestImage/?date='+datetimestring+'&sourceId='+str(theSource))
+try:
+    resp = requests.get('https://api.helioviewer.org/v2/getClosestImage/?date='+datetimestring+'&sourceId='+str(theSource))
+except Exception as e:
+    raise
 if resp.status_code != 200:
     print("Unable to connect to Helioviewer API.")
 else:
@@ -48,7 +51,10 @@ else:
     else:
         print("Requesting FITS data for image ID: "+str(id))
         # create HTTP response object for json FITS data of latest image
-        resp = requests.get('https://api.helioviewer.org/v2/getJP2Header/?id='+str(id))
+        try:
+            resp = requests.get('https://api.helioviewer.org/v2/getJP2Header/?id='+str(id))
+        except Exception as e:
+            raise
         if resp.status_code != 200:
             print("Unable to get FITS JSON data for image id:"+id+" from Helioviewer API.")
         else:
