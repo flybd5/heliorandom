@@ -1,5 +1,5 @@
 # heliorandom
-Python proof-of-concept code to seed pseudorandom number generator with solar image data from the helioviewer API using Solar Dynamics Observer's AIA instrument. The concept is based on the idea that high-cadence, high-resolution images of the surface of the Sun are about as excellent an example of a high-entropy source of seeds as you will be able find, at least on our solar system.
+Python proof-of-concept code to seed pseudorandom number generator with solar image data from the helioviewer API using Solar Dynamics Observer's Atmospheric Imaging Array instrument. The concept is based on the idea that high-cadence, high-resolution images of the surface of the Sun are about as excellent an example of a high-entropy source of seeds as you will be able find, at least on our solar system.
 
 ## API call available
 There is now a REST call on the HelioViewer API that implements this idea I came up with in a very simple way. This also means it can be used in any language that can generate a REST call.
