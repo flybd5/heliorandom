@@ -21,7 +21,7 @@ SOFTWARE.
 
 Abstract: Sample Python 3 code to illustrate seeding Python's random number
 generator with the datasum of the latest image of the sun from one of sources
-8-17 on the Helioviewer API (SDO AIA instrument sources) and the current
+8-16 on the Helioviewer API (SDO AIA instrument sources) and the current
 system time. The Helioviewer site is here:
 
 https://helioviewer.org/
