@@ -25,10 +25,12 @@ import random
 import time
 from urllib.request import urlopen
 
+recordstocreate = 100000
 localfilename = 'seed_dataset'
 outfile = open(localfilename, 'w')
 
-for x in range(0,10000):
+outfile.write('type: f\ncount: ',str(recordstocreate),'\nnumbits: 256\n')
+for x in range(0,recordstocreate):
   resp = urlopen(f'https://api.helioviewer.org/?action=getRandomSeed')
   if resp.getcode() != 200:
     print('Unable to connect to Helioviewer API.')
