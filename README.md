@@ -9,3 +9,5 @@ https://api.helioviewer.org/?action=getRandomSeed
 This endpoint selects the closest image from one of the AIA datasources (8-16, selected randomly by "timestamp % 9 + 8") and then runs a sha256 hash on the image file. This image file hash is then concatenated with a timestamp measured in microseconds and then hashed again using sha256. The result is returned as a seed value.
 
 The code for the API call is here: https://github.com/Helioviewer-Project/api/blob/beta/src/Module/WebClient.php#L991
+
+The program heliorandom_sha uses this API call to generate keys and saves them to a text file. Heliorandom_bin does the same thing but saves them in binary format to a file. Look in the source to modify the filename and the number of keys requested. Do NOT change the 20ms delay between calls or the API will throw you out after a short while. Be respectful of Helioviewer resources.
