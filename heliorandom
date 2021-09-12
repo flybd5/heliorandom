@@ -24,7 +24,7 @@ generator with the datasum of the latest image of the sun from one of sources
 8-16 on the Helioviewer API (SDO AIA instrument sources) and the current
 system time. The Helioviewer site is here:
 
-https://helioviewer.org/
+https://helioviewer.ias.u-psud.fr/
 
 In high level terms, we pick a random camera source from 8 to 16, then we ask
 for the identifier of the latest image from that camera (NOT the image itself).
@@ -36,14 +36,6 @@ I invented this novel technique in June of 2020.
 
 Notes: This program will not run under Python 2.x.
 
-The Helioviewer API now has a dedicated call that implements this technique and
-produces a SHA256 seed value. The API call is:
-
-https://api.helioviewer.org/?action=getRandomSeed
-
-...and the full Helioviewer API documentation lives here:
-
-https://api.helioviewer.org/docs/v2/
 """
 
 import json
@@ -64,7 +56,7 @@ print("Using source:", theSource)
 dtnow = datetime.utcnow()
 datetimestring = dtnow.strftime("%Y-%m-%dT%H:%M:%SZ")
 # create HTTP response object url to the Helioviewer API to get latest image
-resp = urlopen(f'https://api.helioviewer.org/v2/getClosestImage/?date={datetimestring}\
+resp = urlopen(f'https://helioviewer-api.ias.u-psud.fr//v2/getClosestImage/?date={datetimestring}\
 &sourceId={theSource}')
 
 
@@ -79,7 +71,7 @@ else:
     else:
         print("Requesting FITS data for image ID:", id)
         # create HTTP response object for json FITS data of latest image
-        resp = urlopen(f'https://api.helioviewer.org/v2/getJP2Header/?id={id}')
+        resp = urlopen(f'https://helioviewer-api.ias.u-psud.fr/v2/getJP2Header/?id={id}')
         if resp.getcode() != 200:
             print("Unable to get FITS JSON data for image id:", id, "from Helioviewer API.")
         else:
