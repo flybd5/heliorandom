@@ -2,7 +2,7 @@
 
 """
 Author: Juan Jiménez, flybd5@gmail.com
-Copyright 2020 by Juan Jiménez
+Copyright 2020-2026 by Juan Jiménez
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -43,6 +43,8 @@ import random
 from urllib.request import urlopen
 import xml.etree.ElementTree as ET
 from datetime import datetime
+import warnings
+warnings.filterwarnings("ignore")
 
 # Init image checksum value to default of zero
 datasum = 0
@@ -51,7 +53,7 @@ datasum = 0
 # takes pictures at a lower cadence and therefore has a much higher probability
 # of returning duplicate results.
 theSource = random.randint(8, 16)
-print("Using source:", theSource)
+print("Using source: AIA Camera #", theSource)
 # convert now to date/time string in Zulu time
 dtnow = datetime.utcnow()
 datetimestring = dtnow.strftime("%Y-%m-%dT%H:%M:%SZ")
